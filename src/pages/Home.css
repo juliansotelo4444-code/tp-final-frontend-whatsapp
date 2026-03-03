@@ -1,0 +1,50 @@
+/* Home.css */
+.home-container {
+  max-width: 600px; /* Tamaño ideal para que parezca una app de celular en la PC */
+  margin: 0 auto;
+  background-color: #ffffff;
+  min-height: 100vh;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.chats-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ChatCard.css */
+.chat-card {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #f0f2f5;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chat-card:hover {
+  background-color: #f5f6f6;
+}
+
+.chat-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+  object-fit: cover; /* Para que las fotos de Star Wars no se deformen */
+}
+
+.chat-info {
+  flex: 1;
+}
+
+.chat-name {
+  color: #111b21; /* Negro profundo para el nombre */
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.chat-last-msg {
+  color: #3b4a54; /* Gris oscuro para que sea legible y accesible */
+  font-size: 0.9rem;
+}
