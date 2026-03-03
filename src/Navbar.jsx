@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Contactscontext } from '../Context/ContactsContext'; 
+import { ContactsContext } from './Context/ContactsContext'
 import './Navbar.css';
 
 function Navbar() {

@@ -8,7 +8,7 @@ const provider_values = {
     contacts: contactsState,
     currentUser: {
         nombre: 'Yoda',
-        foto: 'https://i.pinimg.com/originals/d6/d6/1e/d6d61e4ba0f7972052e4242e887e0762.jpg' // URL estable
+        foto: 'https://i.pinimg.com/originals/d6/d6/1e/d6d61e4ba0f7972052e4242e887e0762.jpg' 
     }
 };
 
@@ -30,7 +30,6 @@ const provider_values = {
           <button className="icon-btn" aria-label="Menú">⋮</button>
         </div>
       </div>
-      {/* ... resto de tus tabs ... */}
     </nav>
   );
 }
