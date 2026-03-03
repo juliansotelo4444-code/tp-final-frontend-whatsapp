@@ -1,6 +1,6 @@
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ContactsContextProvider from './Context/Contactscontext'; 
+import ContactsContextProvider from './Context/ContactsContext'; 
 import Navbar from './Navbar'; 
 import Home from './pages/Home';
 import ChatView from './pages/ChatView';
