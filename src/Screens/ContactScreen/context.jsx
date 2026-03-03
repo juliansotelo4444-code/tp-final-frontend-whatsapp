@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import ContactSidebar from '../../Components/Components/ContactSidebar'
 import { useParams } from 'react-router'
-import { ContactsContext } from '../../Context/Contactscontext'
+import { ContactsContext } from '../Context/ContactsContext'
 
 export default function ContactScreen() {
   const {contacts} = useContext(ContactsContext)
