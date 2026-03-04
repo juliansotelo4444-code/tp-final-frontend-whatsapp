@@ -1,35 +1,27 @@
-import React, { useContext } from 'react';
-import { Contactscontext } from './ContactsContext.jsx'
-import './Navbar.css';
+import React, { createContext, useState, useEffect } from 'react';
+import { getContacts } from '../services/contactsService';
 
-function Navbar() {
- 
-const provider_values = {
-    contacts: contactsState,
-    currentUser: {
-        nombre: 'Yoda',
-        foto: 'https://i.pinimg.com/originals/d6/d6/1e/d6d61e4ba0f7972052e4242e887e0762.jpg' 
-    }
-};
+export const ContactsContext = createContext();
 
+export function ContactsContextProvider({ children }) {
+    // Iniciamos con Yoda como tú lo pediste
+   const [currentUser] = useState({
+    nombre: "Maestro Yoda",
+    // Esta imagen es de la guía oficial de Star Wars y es muy estable
+    foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8nHj8qy58KWCVzWixTK59jTlDx6aR_w5hmA&s"
+});
+    // Estado para la lista de contactos del Service
+    const [contacts, setContacts] = useState([]);
 
-  return (
-    <nav className="whatsapp-nav">
-      <div className="nav-top">
-        <div className="user-brand">
-          <img 
-            src={currentUser?.foto} 
-            alt={`Perfil de ${currentUser?.nombre}`} 
-            className="nav-user-avatar"
-            onError={(e) => { e.target.src = 'https://ui-avatars.com/api/?name=Yoda&background=008069&color=fff'; }}
-          />
-          <span className="logo">WhatsApp Star Wars</span>
-        </div>
-        <div className="nav-icons">
-          <button className="icon-btn" aria-label="Buscar">🔍</button>
-          <button className="icon-btn" aria-label="Menú">⋮</button>
-        </div>
-      </div>
-    </nav>
-  );
+    useEffect(() => {
+        // Al cargar la app, pedimos los datos al Servicio
+        const data = getContacts();
+        setContacts(data);
+    }, []);
+
+    return (
+        <ContactsContext.Provider value={{ currentUser, contacts }}>
+            {children}
+        </ContactsContext.Provider>
+    );
 }

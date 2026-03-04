@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { ContactsContext } from '../Context/ContactsContext'; 
-import ChatCard from '../Components/ChatCard';    
+import ChatCard from '../Components/ChatCard/ChatCard';    
 import './Home.css';      
 
 function Home() {

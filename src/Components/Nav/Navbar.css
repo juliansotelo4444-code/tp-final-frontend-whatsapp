@@ -1,0 +1,167 @@
+
+.starwars-nav {
+    background-color: #0a0a0a; 
+    color: #4df3ff; 
+    width: 100%;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid #4df3ff;
+    box-shadow: 0 0 15px rgba(77, 243, 255, 0.5);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    flex-grow: 1;
+}
+
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.yoda-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #4df3ff;
+    object-fit: cover;
+}
+
+.yoda-name {
+    color: #4df3ff;
+    font-weight: bold;
+    text-shadow: 0 0 5px #4df3ff;
+}
+
+
+.title-section {
+    text-align: center;
+}
+
+.nav-title {
+    color: #f7e01e; 
+    font-size: 1.6rem;
+    margin: 0;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(247, 224, 30, 0.7);
+}
+
+.subtitle {
+    color: #4df3ff;
+    font-size: 0.7rem;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+
+.action-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.icon-btn {
+    background: none;
+    border: 1px solid #4df3ff;
+    color: #4df3ff;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+
+.hamburger-btn {
+    display: none; 
+    background: none;
+    border: 1px solid #4df3ff;
+    color: #4df3ff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+
+@media screen and (max-width: 660px) {
+    .hamburger-btn {
+        display: block;
+        background: none;
+        border: none;
+        color: #4df3ff;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    .nav-links {
+        display: none; 
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background: #050505;
+        flex-direction: column;
+        width: 100%;
+        border-bottom: 2px solid #4df3ff;
+    }
+
+    .nav-links.active {
+        display: flex; 
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .nav-title {
+        font-size: 1.2rem;
+    }
+    .icon-btn {
+      display: none;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+
+}
+@media screen and (max-width: 350px) {
+    .starwars-nav {
+        height: auto; 
+        padding: 5px 0;
+    }
+
+    .nav-container {
+        flex-direction: column; 
+        gap: 8px;
+        padding: 10px;
+    }
+
+    
+    .rank-tag, 
+    .subtitle {
+        display: none;
+    }
+
+    .nav-title {
+        font-size: 1.1rem; 
+        letter-spacing: 1px;
+    }
+
+    .yoda-avatar {
+        width: 35px; 
+        height: 35px;
+    }
+
+    .action-icons {
+        gap: 10px; 
+    }
+    
+    .icon-btn {
+        font-size: 1.1rem;
+        padding: 4px;
+    }
+}

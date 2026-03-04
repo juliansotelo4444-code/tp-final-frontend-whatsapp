@@ -1,0 +1,61 @@
+/* Contenedor principal del contacto */
+.chat-card {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f2f5;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    background-color: #ffffff;
+}
+
+.chat-card:hover {
+    background-color: #f5f6f6; /* Efecto al pasar el mouse */
+}
+
+/* Imagen de perfil circular */
+.chat-avatar {
+    width: 49px;
+    height: 49px;
+    border-radius: 50%;
+    object-fit: cover; /* Evita que la imagen se estire */
+    margin-right: 15px;
+}
+
+/* Contenedor de la información (Nombre, hora, mensaje) */
+.chat-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Ocupa todo el ancho restante */
+    justify-content: center;
+    overflow: hidden; /* Importante para los puntos suspensivos */
+}
+
+/* Fila superior: Nombre y Hora */
+.chat-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+}
+
+.chat-name {
+    font-size: 17px;
+    font-weight: 500;
+    color: #111b21;
+}
+
+.chat-time {
+    font-size: 12px;
+    color: #667781;
+}
+
+/* Último mensaje con puntos suspensivos si es largo */
+.chat-last-msg {
+    font-size: 14px;
+    color: #667781;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Agrega los "..." automáticamente */
+}
