@@ -1,61 +1,74 @@
-/* Contenedor principal del contacto */
+
+/* Contenedor de la tarjeta con borde neón sutil */
 .chat-card {
     display: flex;
     align-items: center;
-    padding: 12px 16px;
-    border-bottom: 1px solid #f0f2f5;
+    padding: 15px;
+    margin: 10px 15px;
+    background: rgba(10, 10, 10, 0.8); /* Fondo oscuro profundo para contraste */
+    border: 1px solid rgba(77, 243, 255, 0.3); /* Borde azul holográfico */
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.2s;
-    background-color: #ffffff;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
+/* Efecto al pasar el mouse (Hover) */
 .chat-card:hover {
-    background-color: #f5f6f6; /* Efecto al pasar el mouse */
+    background: rgba(77, 243, 255, 0.1);
+    border-color: #4df3ff;
+    box-shadow: 0 0 15px rgba(77, 243, 255, 0.4);
+    transform: translateX(5px);
 }
 
-/* Imagen de perfil circular */
+/* Imagen del personaje con marco tecnológico */
 .chat-avatar {
-    width: 49px;
-    height: 49px;
-    border-radius: 50%;
-    object-fit: cover; /* Evita que la imagen se estire */
+    width: 55px;
+    height: 55px;
+    border-radius: 4px; /* Cuadrado con bordes suaves para look militar */
+    border: 2px solid #4df3ff;
+    object-fit: cover;
     margin-right: 15px;
+    filter: brightness(1.1) contrast(1.2);
 }
 
-/* Contenedor de la información (Nombre, hora, mensaje) */
+/* Información del chat */
 .chat-info {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    flex: 1; /* Ocupa todo el ancho restante */
-    justify-content: center;
-    overflow: hidden; /* Importante para los puntos suspensivos */
+    gap: 4px;
 }
 
-/* Fila superior: Nombre y Hora */
 .chat-top-row {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 2px;
+    align-items: center;
 }
 
+/* Nombre: Contraste máximo en cian */
 .chat-name {
-    font-size: 17px;
-    font-weight: 500;
-    color: #111b21;
+    color: #4df3ff; 
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
+/* Hora: Contraste en dorado */
 .chat-time {
-    font-size: 12px;
-    color: #667781;
+    color: #f7e01e;
+    font-size: 0.8rem;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-/* Último mensaje con puntos suspensivos si es largo */
+/* Último mensaje: Gris claro para que se lea perfecto */
 .chat-last-msg {
-    font-size: 14px;
-    color: #667781;
+    color: rgb(143, 142, 142); 
+    font-size: 0.9rem;
     margin: 0;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; /* Agrega los "..." automáticamente */
+    text-overflow: ellipsis;
 }

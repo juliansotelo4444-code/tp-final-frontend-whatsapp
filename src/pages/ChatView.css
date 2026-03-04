@@ -1,59 +1,135 @@
-.bubble.mine {
-  background-color: #dcf8c6; /* Verde clarito estilo WhatsApp */
-  align-self: flex-end;
-  border-radius: 10px 0 10px 10px;
+
+.chat-view {
+    background-color: #050505; 
+    background-image: radial-gradient(circle, #111 1px, transparent 1px);
+    background-size: 30px 30px; 
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
 }
 
-.bubble.theirs {
-  background-color: white;
-  align-self: flex-start;
-  border-radius: 0 10px 10px 10px;
-}
 
 .bubble {
-  max-width: 65%;
-  padding: 6px 10px;
-  font-size: 14.2px;
-  border-radius: 7.5px;
-  box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
-  position: relative;
-  line-height: 19px;
-  color: #111b21; 
+    max-width: 75%;
+    padding: 12px 16px;
+    margin: 8px 15px;
+    font-size: 1rem;
+    line-height: 1.4;
+    position: relative;
+    border: 1px solid transparent;
 }
 
+
 .bubble.mine {
-  align-self: flex-end;
-  background-color: #dcf8c6; 
+    align-self: flex-end;
+    background: rgba(0, 128, 105, 0.2); 
+    color: #00ffcc; 
+    border-color: #00ffcc;
+    border-radius: 15px 15px 0 15px;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
 }
 
 .bubble.theirs {
-  align-self: flex-start;
-  background-color: #ffffff;
+    align-self: flex-start;
+    background: rgba(77, 243, 255, 0.1); 
+    color: #ffffff; 
+    border-color: #4df3ff;
+    border-radius: 15px 15px 15px 0;
+    box-shadow: 0 0 10px rgba(77, 243, 255, 0.3);
 }
 
 
 .chat-input-form {
-  padding: 5px 10px;
-  background-color: #f0f2f5;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    background: #0a0a0a;
+    padding: 15px;
+    border-top: 2px solid #4df3ff;
+    display: flex;
+    gap: 10px;
 }
 
 .chat-input-form input {
-  flex: 1;
-  background-color: #ffffff;
-  border: none;
-  padding: 9px 12px;
-  border-radius: 8px;
-  font-size: 15px;
-  outline: none;
+    flex: 1;
+    background: #1a1a1a;
+    border: 1px solid #4df3ff;
+    color: #4df3ff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    outline: none;
 }
 
 .send-btn {
-  background: none;
-  border: none;
-  color: #54656f;
-  font-size: 24px;
-  cursor: pointer;
+    background: #4df3ff;
+    color: #050505;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.chat-header-info {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(20, 20, 20, 0.9);
+    border-bottom: 1px solid #4df3ff; 
+    gap: 15px;
+}
+
+.header-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid #4df3ff;
+}
+
+.header-name {
+    color: #f7e01e; 
+    margin: 0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.status-online {
+    color: #00ffcc; 
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+
+
+.messages-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.back-btn {
+    background: none;
+    border: 1px solid #4df3ff; /* Azul cian para visibilidad */
+    color: #4df3ff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-right: 10px;
+    transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+    background: rgba(77, 243, 255, 0.2);
+    box-shadow: 0 0 8px #4df3ff;
+}
+
+/* Ajuste para que la cabecera sea responsiva */
+@media screen and (max-width: 450px) {
+    .header-name {
+        font-size: 1rem;
+    }
+    .back-btn {
+        padding: 4px 8px;
+        font-size: 1rem;
+    }
 }

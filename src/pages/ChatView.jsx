@@ -1,90 +1,77 @@
 
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ContactsContext } from '../Context/ContactsContext'; 
+import { ContactsContext } from '../Context/ContactsContext';
 import './ChatView.css';
 
+/**
+ * Vista de Chat de "Clone Whats".
+ * Muestra la conversación con un personaje de Star Wars y permite navegar hacia atrás.
+ */
 function ChatView() {
   const { contactoId } = useParams();
-  const navigate = useNavigate();
-  const { contacts } = useContext(ContactsContext); 
-  
-  const [mensaje, setMensaje] = useState('');
-  const [historial, setHistorial] = useState([]);
-  const [contactoActual, setContactoActual] = useState(null);
+  const navigate = useNavigate(); // Hook para volver a la lista de contactos
+  const { contacts } = useContext(ContactsContext);
 
-  useEffect(() => {
-    const encontrado = contacts.find(c => c.id === parseInt(contactoId));
-    if (encontrado) {
-      setContactoActual(encontrado);
-      setHistorial(encontrado.messages);
-    }
-  }, [contactoId, contacts]);
+  // Buscamos el contacto específico basado en el ID de la URL
+  const contacto = contacts.find(c => c.id === parseInt(contactoId));
 
-  // Función para simular la respuesta automática
-  const simularRespuesta = () => {
-    setTimeout(() => {
-      const respuestasYoda = [
-        "Miedo, el miedo lleva al enojo...",
-        "Hazlo o no lo hagas, pero no lo intentes.",
-        "Que la Fuerza te acompañe.",
-        "Verdad es, lo que dices."
-      ];
-      
-      // Elegimos una frase al azar
-      const fraseAleatoria = respuestasYoda[Math.floor(Math.random() * respuestasYoda.length)];
-
-      setHistorial(prev => [...prev, { 
-        id: Date.now(), 
-        texto: fraseAleatoria, 
-        soyYo: false 
-      }]);
-    }, 1500); // 1.5 segundos de espera para que parezca real
-  };
-
-  const enviarMensaje = (e) => {
-    e.preventDefault();
-    if (!mensaje.trim()) return;
-
-    setHistorial(prev => [...prev, { 
-      id: Date.now() + 1, 
-      texto: mensaje, 
-      soyYo: true 
-    }]);
-    
-    setMensaje('');
-    simularRespuesta(); // <--- Llamamos a la respuesta automática
-  };
-
-  if (!contactoActual) return <div>Conectando con el Holocrón...</div>;
+  // Si la transmisión falla o el contacto no existe
+  if (!contacto) {
+    return (
+      <div className="chat-view error-state">
+        <button className="back-btn" onClick={() => navigate(-1)}>◀ VOLVER</button>
+        <p className="error-msg">ERROR: TRANSMISIÓN HOLONET INTERRUMPIDA...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="chat-view">
-      <header className="chat-header">
-        <button onClick={() => navigate('/')} className="back-btn">←</button>
-        <img src={contactoActual.foto} alt={contactoActual.nombre} className="chat-avatar" />
-        <div className="chat-info">
-          <span className="chat-name">{contactoActual.nombre}</span>
-          <span className="chat-status">escribiendo...</span>
+      {/* Cabecera del Chat: Identificación del Interlocutor */}
+      <header className="chat-header-info">
+        <button 
+          className="back-btn" 
+          onClick={() => navigate(-1)} 
+          title="Regresar a la lista"
+        >
+          ◀
+        </button>
+        
+        <img 
+          src={contacto.foto} 
+          alt={contacto.nombre} 
+          className="header-avatar" 
+        />
+        
+        <div className="header-text">
+          <h2 className="header-name">{contacto.nombre}</h2>
+          <span className="status-online">● CONECTADO A LA REPÚBLICA</span>
         </div>
       </header>
 
-      <div className="chat-messages">
-        {historial.map(m => (
-          <div key={m.id} className={`bubble ${m.soyYo ? 'mine' : 'theirs'}`}>
-            {m.texto}
+      {/* Contenedor de Mensajes */}
+      <div className="messages-container">
+        {contacto.messages.map((msg) => (
+          <div 
+            key={msg.id} 
+            className={`bubble ${msg.soyYo ? 'mine' : 'theirs'}`}
+          >
+            {msg.texto}
           </div>
         ))}
       </div>
 
-      <form onSubmit={enviarMensaje} className="chat-input-form">
+      {/* Formulario de Entrada de Texto Estilo Consola */}
+      <form className="chat-input-form" onSubmit={(e) => e.preventDefault()}>
         <input 
           type="text" 
-          placeholder="Escribe un mensaje" 
-          value={mensaje}
-          onChange={(e) => setMensaje(e.target.value)}
+          placeholder="Escribir mensaje cifrado..." 
+          className="holo-input"
         />
-        <button type="submit" className="send-btn">➤</button>
+        <button type="submit" className="send-btn">
+          ENVIAR
+        </button>
       </form>
     </div>
   );
