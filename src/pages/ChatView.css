@@ -108,7 +108,7 @@
 
 .back-btn {
     background: none;
-    border: 1px solid #4df3ff; /* Azul cian para visibilidad */
+    border: 1px solid #4df3ff; 
     color: #4df3ff;
     font-size: 1.2rem;
     cursor: pointer;
@@ -123,7 +123,7 @@
     box-shadow: 0 0 8px #4df3ff;
 }
 
-/* Ajuste para que la cabecera sea responsiva */
+
 @media screen and (max-width: 450px) {
     .header-name {
         font-size: 1rem;

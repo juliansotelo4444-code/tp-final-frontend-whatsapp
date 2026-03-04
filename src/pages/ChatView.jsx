@@ -7,21 +7,21 @@ function ChatView() {
     const { contactoId } = useParams();
     const navigate = useNavigate();
     
-    // Extraemos los contactos y la función para enviar
+    
     const { contacts, enviarMensaje } = useContext(ContactsContext);
     const [nuevoMensaje, setNuevoMensaje] = useState("");
 
-    // Buscamos al personaje específico (clon o Jedi)
+    
     const contacto = contacts.find(c => c.id === parseInt(contactoId));
 
     const handleSend = (e) => {
         e.preventDefault();
         if (nuevoMensaje.trim() === "") return;
 
-        // Llamamos a la función del contexto
+        
         enviarMensaje(contacto.id, nuevoMensaje);
         
-        // Limpiamos el input para el siguiente mensaje
+        
         setNuevoMensaje("");
     };
 
@@ -40,7 +40,7 @@ function ChatView() {
 
             <div className="messages-container">
                 {contacto.messages.map((msg) => (
-                    /* Importante: Usamos 'mine' si soyYo es true */
+                    
                     <div 
                         key={msg.id} 
                         className={`bubble ${msg.soyYo ? 'mine' : 'theirs'}`}

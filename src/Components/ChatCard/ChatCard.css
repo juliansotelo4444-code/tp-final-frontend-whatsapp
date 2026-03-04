@@ -1,12 +1,12 @@
 
-/* Contenedor de la tarjeta con borde neón sutil */
+
 .chat-card {
     display: flex;
     align-items: center;
     padding: 15px;
     margin: 10px 15px;
-    background: rgba(10, 10, 10, 0.8); /* Fondo oscuro profundo para contraste */
-    border: 1px solid rgba(77, 243, 255, 0.3); /* Borde azul holográfico */
+    background: rgba(10, 10, 10, 0.8); 
+    border: 1px solid rgba(77, 243, 255, 0.3); 
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -14,7 +14,6 @@
     overflow: hidden;
 }
 
-/* Efecto al pasar el mouse (Hover) */
 .chat-card:hover {
     background: rgba(77, 243, 255, 0.1);
     border-color: #4df3ff;
@@ -22,18 +21,17 @@
     transform: translateX(5px);
 }
 
-/* Imagen del personaje con marco tecnológico */
 .chat-avatar {
     width: 55px;
     height: 55px;
-    border-radius: 4px; /* Cuadrado con bordes suaves para look militar */
+    border-radius: 4px; 
     border: 2px solid #4df3ff;
     object-fit: cover;
     margin-right: 15px;
     filter: brightness(1.1) contrast(1.2);
 }
 
-/* Información del chat */
+
 .chat-info {
     flex: 1;
     display: flex;
@@ -47,7 +45,7 @@
     align-items: center;
 }
 
-/* Nombre: Contraste máximo en cian */
+
 .chat-name {
     color: #4df3ff; 
     font-weight: bold;
@@ -56,14 +54,13 @@
     letter-spacing: 1px;
 }
 
-/* Hora: Contraste en dorado */
+
 .chat-time {
     color: #f7e01e;
     font-size: 0.8rem;
     font-family: 'Courier New', Courier, monospace;
 }
 
-/* Último mensaje: Gris claro para que se lea perfecto */
 .chat-last-msg {
     color: rgb(143, 142, 142); 
     font-size: 0.9rem;
